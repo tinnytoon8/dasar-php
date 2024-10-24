@@ -120,9 +120,6 @@ function ubah($data) {
         $gambar = upload();
     }
 
-    
-
-
     // query update data
     $query = "UPDATE mhs SET npm = '$npm', nama= '$nama', email = '$email', jurusan = '$jurusan', gambar = '$gambar' WHERE id = $id";
     mysqli_query($conn, $query);
@@ -131,7 +128,7 @@ function ubah($data) {
 }
 
 function cari($keyword) {
-    $query = "SELECT * FROM mhs WHERE nama LIKE '%$keyword%' OR npm LIKE '$keyword' OR email LIKE '$keyword' OR jurusan LIKE '$keyword'";
+    $query = "SELECT * FROM mhs WHERE nama LIKE '%$keyword%' OR npm LIKE '%$keyword%' OR email LIKE '%$keyword%' OR jurusan LIKE '%$keyword%'";
 
     return query($query);
 }
