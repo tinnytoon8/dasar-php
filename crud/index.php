@@ -32,17 +32,33 @@ if(isset($_POST["cari"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Admin</title>
+    <style>
+        .loader {
+            width: 25px;
+            position: absolute;
+            top: 140px;
+            margin-left: 10px;
+            z-index: -1;
+            display: none;
+        }
+
+        @media print {
+
+        }
+    </style>
 </head>
 <body>
-    <a href="logout.php">Logout</a>
+    <a href="logout.php" class="logout">Logout</a> | <a href="cetak.php" target="_blank">Cetak</a>
     <h1>Daftar Mahasiswa</h1>
 
-    <a href="tambah.php">tambah Data Mahasiswa</a>
+    <a href="tambah.php" class="tambah">tambah Data Mahasiswa</a>
     <br><br>
 
-    <form action="" method="post">
+    <form action="" method="post" class="form-cari">
         <input type="text" name="keyword" size="30" autofocus placeholder="masukan keyword pencarian..." autocomplete="off" id="keyword">
         <button type="submit" name="cari" id="tombol-cari">Cari Data</button>
+
+        <img src="img/loader.gif" class="loader">
         <br><br>
     </form>
     <br>
@@ -93,6 +109,8 @@ if(isset($_POST["cari"])) {
             <?php endforeach; ?>
         </table>
     </div>
+    <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/script1.js"></script>
 </body>
 </html>
